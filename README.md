@@ -1,1 +1,22 @@
-# Client_Server_Network_GroupC Project report that includes draft Architecture Diagram and Technical flow 
+# Title
+
+This is an example file with default selections.
+
+## Install
+
+```
+```
+
+## Usage
+
+```
+```
+
+## Contributing
+
+Pull request accepted.
+
+## License
+
+No Licence
+
