@@ -8,6 +8,6 @@ import pickle
 # Create a dictionary with key-value pairs
 dictionary = {"name": "Pawan", "age": 40, "city": "Preston"}
 
-# creates new file and convert dictionary to json
-with open('dict.json', 'wb') as file:
+# creates new file to serialize into pickle
+with open('dict.pickle', 'wb') as file:
     pickle.dump(dictionary, file)
