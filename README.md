@@ -17,6 +17,5 @@ Pull request accepted
 
 ## License
 
-No Licence
-
+No Licence required
 
