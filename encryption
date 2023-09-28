@@ -21,8 +21,7 @@ with open('encrypted_data.json', 'wb') as file:
     file.write(encrypted_data)
 
 # Print the secret key (keep this secret for decryption)
-print("Secret Key:", secret_key)
-
+#print("Secret Key:", secret_key)
 
 # Read the encrypted data from the file
 with open('encrypted_data.json', 'rb') as file:
