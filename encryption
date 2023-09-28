@@ -1,43 +1,67 @@
-import json
 from cryptography.fernet import Fernet
 
-# Create a dictionary with key-value pairs
-dictionary = {"name": "Pawan", "age": 40, "city": "Preston"}
 
-# Convert dictionary to JSON
-json_dict = json.dumps(dictionary)
+def write_key():
+    """
+    Generating a key and saving it into a file
+    """
+    key = Fernet.generate_key()
+    with open("key.key", "wb") as key_file:
+        key_file.write(key)
 
-# Generate a secret key for encryption (keep this secret)
-secret_key = Fernet.generate_key()
 
-# Initialize the Fernet cipher with the secret key
-cipher_suite = Fernet(secret_key)
+def load_key():
+    """
+    Loading the key from the current directory named `key.key`
+    """
+    return open("key.key", "rb").read()
 
-# Encrypt the JSON data
-encrypted_data = cipher_suite.encrypt(json_dict.encode())
 
-# Save the encrypted data to a file
-with open('encrypted_data.json', 'wb') as file:
-    file.write(encrypted_data)
+# generating and writing a new key
+write_key()
 
-# Print the secret key (keep this secret for decryption)
-#print("Secret Key:", secret_key)
+# loading the previously generated key
+key = load_key()
 
-# Read the encrypted data from the file
-with open('encrypted_data.json', 'rb') as file:
-    encrypted_data = file.read()
+message = "some secret message".encode()
 
-# Add the key you generated to start decrypting the file
-secret_key = Fernet(secret_key)
+# initializing the Fernet class
+f = Fernet(key)
 
-# Initialize the Fernet cipher with the secret key
-cipher_suite = Fernet(secret_key)
+# encrypting the message
+encrypted = f.encrypt(message)
 
-# Decrypt the data
-decrypted_data = cipher_suite.decrypt(encrypted_data)
+# printing how it looks
+print(encrypted)
 
-# Convert the JSON data back to a dictionary
-dictionary = json.loads(decrypted_data.decode())
 
-# Print the decrypted dictionary
-print(dictionary)
+def encrypt(filename, key):
+    """
+    Given a filename (str) and key (bytes), it encrypts the file and write it
+    """
+    f = Fernet(key)
+    with open(filename, "rb") as file:
+        # read all file data
+        file_data = file.read()
+
+    # encrypt data
+    encrypted_data = f.encrypt(file_data)
+
+    # write the encrypted file
+    with open(filename, "wb") as file:
+        file.write(encrypted_data)
+
+
+def decrypt(filename, key):
+    """
+    Given a filename (str) and key (bytes), it decrypts the file and write it
+    """
+    f = Fernet(key)
+    with open(filename, "rb") as file:
+        # read the encrypted data
+        encrypted_data = file.read()
+    # decrypt data
+    decrypted_data = f.decrypt(encrypted_data)
+    # write the original file
+    with open(filename, "wb") as file:
+        file.write(decrypted_data)
