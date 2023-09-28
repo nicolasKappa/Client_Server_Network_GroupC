@@ -1,22 +1,13 @@
 '''
-The code creates JSON file for corresponding Key-value paires
-written in dictionary
+The code uses pickle module to serialize dictionary and
+save it to file in binary format
 '''
-# importing Json module
-import json
-
-
-# Create an empty dictionary
-my_dict = {}
+# importing pickle module
+import pickle
 
 # Create a dictionary with key-value pairs
 dictionary = {"name": "Pawan", "age": 40, "city": "Preston"}
 
-# convert dictionary to json
-json_dict = json.dumps(dictionary)
-
-# print dictionary
-print(dictionary)
-
-# Json representation of dictionary
-print(json_dict)
+# creates new file and convert dictionary to json
+with open('dict.json', 'wb') as file:
+    pickle.dump(dictionary, file)
