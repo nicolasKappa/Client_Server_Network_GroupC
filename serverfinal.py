@@ -1,4 +1,5 @@
 import socket
+import pickle
 from cryptography.fernet import Fernet
 
 # Create a socket object
@@ -32,7 +33,13 @@ try:
 
     # Print the decrypted data
     #print("Decrypted data:", decrypted_data.decode('utf-8'))
-    print("Decrypted data as bytes:", decrypted_data)
+    #print("Decrypted data as bytes:", decrypted_data)
+
+    # Deserialize the decrypted data using pickle
+    deserialized_data = pickle.loads(decrypted_data)
+
+    # Print the deserialized data
+    print("Deserialized data:", deserialized_data)
 
     # Save the decrypted data to a file
     with open('decrypted_dict.pickle', 'wb') as file:
