@@ -37,11 +37,11 @@ write_key()
 
 # Load the previously generated key
 key = load_key()
-print(f"Fernet Key: {key.hex()}")
+#print(f"Fernet Key: {key.hex()}")
 
 # Call the print_key function to print the key
 load_key()
-write_key()
+#write_key()
 
 try:
     # Add a new dictionary
