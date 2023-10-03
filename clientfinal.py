@@ -80,6 +80,13 @@ try:
     response = client_socket.recv(1024)
     print(f"Message from server: {response.decode('utf-8')}")
 
+except Exception as e:
+    """
+    try-except block to handle excpetion and print error message
+    """
+    print(f"An error occurred: {e}")
+    sys.exit(1)
+
 finally:
     # Clean up the connection
     client_socket.close()
