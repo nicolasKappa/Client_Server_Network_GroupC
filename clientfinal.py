@@ -1,6 +1,7 @@
 import socket
 import pickle
 from cryptography.fernet import Fernet
+import sys
 
 # Create a socket object
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -35,12 +36,9 @@ def load_key():
 # Generate and write a new key
 write_key()
 
-# Load the previously generated key
+# Load the previously generated key and print it
 key = load_key()
-#print(f"Fernet Key: {key.hex()}")
-
-# Call the print_key function to print the key
-load_key()
+print(f"Fernet Key: {key.hex()}")
 #write_key()
 
 try:
