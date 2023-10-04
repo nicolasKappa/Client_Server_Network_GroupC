@@ -19,7 +19,8 @@ print("Accepted connection from {}:{}".format(*client_address))
 
 try:
     # Load the Fernet key
-    key = open("key.key", "rb").read()
+    with open("key.key", "rb") as key_file:
+        key = key_file.read()
     print("Loaded key: ", key)
 
     # Receive data from the client
@@ -43,7 +44,7 @@ try:
 
     # Save the decrypted data to a file
     with open('decrypted_dict.pickle', 'wb') as file:
-        file.write(decrypted_data)
+        pickle.dump(decrypted_data, file)
 
     print("Received and decrypted data successfully.")
 
