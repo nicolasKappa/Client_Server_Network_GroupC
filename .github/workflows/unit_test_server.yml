@@ -1,5 +1,5 @@
 # This workflow will run unit test to check server functions whenever code is pushed to main branch or pulled from it.
-name: unit_test_client
+name: unit_test_server
 
 on:
   push:
