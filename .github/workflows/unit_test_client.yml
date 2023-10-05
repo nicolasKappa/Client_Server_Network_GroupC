@@ -1,0 +1,25 @@
+# This workflow will run unit test to check client functions whenever code is pushed to main branch or pulled from it.
+name: unit_test_client
+
+on:
+  push:
+    branches: [ "main" ] # Trigger the workflow on code pushes
+  pull_request:
+    branches: [ "main" ] # Trigger the workflow on pull request
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          pip install cryptography        # Install the 'cryptography' module
+
+      - name: Run unit tests
+        run: python -m unittest unit_tests_client.py
