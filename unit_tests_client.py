@@ -3,9 +3,9 @@ from unittest import mock
 import clientfinal
 import os
 from cryptography.fernet import Fernet
-from encryption import write_key, decrypt
-from encryption import load_key
-from encryption import encrypt
+#from encryption import write_key, decrypt
+#from encryption import load_key
+#from encryption import encrypt
 
 
 class TestClient(unittest.TestCase):
