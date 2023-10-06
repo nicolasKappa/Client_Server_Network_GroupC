@@ -46,6 +46,14 @@ def encrypt(data, key):
         return None
 
 def send_encrypted_data(client_socket, encrypted_data):
+    """
+    Sends the given encrypted data to the client socket.
+        Args:
+            client_socket: A TCP client socket object.
+            encrypted_data: The encrypted data to send.
+        Returns:
+            `None` if there was an error sending the data.
+    """
     try:
         client_socket.send(encrypted_data)
     except socket.error as e:
