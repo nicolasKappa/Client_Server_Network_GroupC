@@ -61,7 +61,7 @@ def save_decrypted_data_to_file(data, file_path):
     try:
         with open(file_path, 'wb') as file:
             pickle.dump(data, file)
-        print("Data saved to file:", file_path)
+        #print("Data saved to file:", file_path)
     except Exception as e:
         print("Error saving data to file:", e)
         raise
@@ -91,6 +91,20 @@ def server_connection(
         deserialized_data = deserialize_data(decrypted_data)
         save_decrypted_data_to_file(deserialized_data, decrypted_data_file_path)
 
+        #use of input() to prompt use to either save to print the file
+
+        output_option = input("Enter 'print' to print the decrypted data or 'save' to save it to a file: ")
+
+        if output_option == 'print':
+            print("Decrypted data:", deserialized_data)
+        elif output_option == 'save':
+            save_decrypted_data_to_file(deserialized_data, decrypted_data_file_path)
+            print("Data saved to file:", decrypted_data_file_path)
+            return
+        else:
+            print("Invalid output option:", output_option)
+
+       
         response = "Received and decrypted data successfully."
         send_response(client_socket, response)
     except Exception as e:
