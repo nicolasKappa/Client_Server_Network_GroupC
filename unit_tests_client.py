@@ -70,7 +70,6 @@ class TestClient(unittest.TestCase):
         print("  - All mocked functions were called with the expected arguments.")
         print("  - Test completed successfully.")
 
-
 # functions - test_write_key, test_load_key, test_encrypt and test_decrypt no longer required. 
 # above functions will be called by mocking the functions and methods. 
 #mock assesertions will confirm test pass or fail. 
