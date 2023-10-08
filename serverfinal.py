@@ -13,7 +13,7 @@ It is a secure way to perform encryption and decryption using a shared secret ke
 def create_server_socket(address, port):
 
     """
-    Created a socket server that is open to listening for connections from clients.
+    We created a socket server that is open to listening for connections from client.
     """
     try:
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
