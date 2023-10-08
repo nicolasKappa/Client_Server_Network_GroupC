@@ -119,7 +119,7 @@ def deserialize_data(data):
         print("Error deserializing data:", e)
         raise
 
-def save_decrypted_data_to_filec(data, file_path):
+def save_decrypted_data_to_file(data, file_path):
 
     """
     Save decrypted data to a file.
