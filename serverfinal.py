@@ -113,7 +113,7 @@ def deserialize_data(data):
     
     try:
         deserialized_data = pickle.loads(data)
-        print("Deserialized data:", deserialized_data)
+        #print("Deserialized data:", deserialized_data)
         return deserialized_data
     except pickle.PickleError as e:
         print("Error deserializing data:", e)
