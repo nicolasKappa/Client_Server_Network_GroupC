@@ -122,6 +122,6 @@ Group C end of module assignment
 Pull request accepted
 
 ## License
-
-No Licence required
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+- This project is licensed under the MIT License.
 
